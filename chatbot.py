@@ -5,12 +5,13 @@ from langchain.schema.runnable import Runnable
 from langchain.schema.runnable.config import RunnableConfig
 from typing import cast
 from dotenv import load_dotenv
+from common.utils import init_chatbot
 import chainlit as cl
 
 
 @cl.on_chat_start
 async def on_chat_start():
-    load_dotenv()
+    init_chatbot()
     model = ChatGroq(streaming=True, model="meta-llama/llama-4-maverick-17b-128e-instruct", max_tokens=6000)
     system_message = """
     You are a assistant that helps the user to post blogs.
