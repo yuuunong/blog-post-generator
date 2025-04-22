@@ -4,7 +4,6 @@ from langchain.schema import StrOutputParser
 from langchain.schema.runnable import Runnable
 from langchain.schema.runnable.config import RunnableConfig
 from typing import cast
-from dotenv import load_dotenv
 from common.utils import init_chatbot
 import chainlit as cl
 

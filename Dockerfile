@@ -21,10 +21,10 @@ WORKDIR /app
 RUN pip3 install -r ./requirements.txt
 
 # 실행 포트 정의 
-EXPOSE 8000
+EXPOSE 8501
 
 # 컨테이너 실행 유무 확인 
-HEALTHCHECK CMD curl --fail http://localhost:8000/_stcore/health
+HEALTHCHECK CMD curl --fail -i http://localhost:8501/
 
 # 웹서버 실행 
-ENTRYPOINT ["chainlit", "run", "chatbot.py"]
+ENTRYPOINT ["chainlit", "run", "chatbot.py", "--port", "8501", "--host", "0.0.0.0"]
